@@ -1,0 +1,19 @@
+version: '3'
+services:
+    postgres:
+        environment:
+          - POSTGRES_USER=postgres
+          - POSTGRES_DB=crawler
+          - POSTGRES_HOST_AUTH_METHOD=trust
+        image: postgres:11
+        networks:
+            - crawler_net
+        restart: on-failure
+        ports:
+            - "5432:5432"
+        volumes:
+            - ./init-sql.sh:/docker-entrypoint-initdb.d/init-sql.sh
+            - ./data/postgres:/var/lib/postgresql/data
+networks:
+    crawler_net:
+        driver: bridge

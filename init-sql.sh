@@ -1,0 +1,7 @@
+psql -v ON_ERROR_STOP=1 --username "$POSTGRES_USER" <<-EOSQL
+    CREATE USER admin WITH ENCRYPTED PASSWORD 'password';
+    CREATE DATABASE postgres;
+    GRANT ALL PRIVILEGES ON DATABASE postgres TO admin;
+EOSQL
+
+

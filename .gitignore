@@ -1,0 +1,10 @@
+# SQLite db file, pytorch checkpoints and model files
+*.db
+*.DS_Store
+
+# data and temp directories
+data/postgres
+/app/downloads
+/app/temp
+.ipynb_checkpoints
+__pycache__ 
